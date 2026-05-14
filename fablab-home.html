@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FabLab — RIT College of Art and Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--o:#F76900;--od:#1A1A1A;--om:#2E2E2E;--ow:#fff;--oa:#FF9A3C}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#1A1A1A;color:#fff;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(26,26,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(247,105,0,.15)}
+.nlogo{display:flex;align-items:center;gap:.55rem;text-decoration:none}
+.nmark{width:34px;height:34px;background:var(--o);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;color:#fff;flex-shrink:0}
+.ntext{display:flex;flex-direction:column;line-height:1.15}
+.ntext span:first-child{font-size:.64rem;font-weight:600;color:var(--o);letter-spacing:.12em;text-transform:uppercase}
+.ntext span:last-child{font-size:.92rem;font-weight:700;font-family:'Space Grotesk',sans-serif;color:#fff}
+.nlinks{display:flex;gap:1.8rem;list-style:none}
+.nlinks a{text-decoration:none;font-size:.82rem;font-weight:500;color:rgba(255,255,255,.62);letter-spacing:.04em;transition:color .2s}
+.nlinks a:hover{color:var(--o)}
+.ncta{background:var(--o);color:#fff!important;padding:.4rem 1rem;font-weight:600!important}
+.ncta:hover{background:var(--oa)!important}
+
+/* HERO */
+#hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:4rem 2.5rem 3rem;overflow:hidden}
+.hbg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(247,105,0,.09) 0%,transparent 50%),repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(247,105,0,.04) 60px,rgba(247,105,0,.04) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(247,105,0,.04) 60px,rgba(247,105,0,.04) 61px)}
+.hglow{position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(247,105,0,.18) 0%,transparent 65%);pointer-events:none}
+.hcontent{position:relative;max-width:720px}
+.heyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o);margin-bottom:1.3rem}
+.heyebrow::before{content:'';width:22px;height:2px;background:var(--o)}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:700;line-height:.94;letter-spacing:-.03em;margin-bottom:1.4rem}
+h1 em{font-style:normal;color:var(--o)}
+.hsub{font-size:1.04rem;font-weight:300;line-height:1.72;color:rgba(255,255,255,.6);max-width:500px;margin-bottom:2.2rem}
+.hactions{display:flex;gap:1rem;flex-wrap:wrap}
+.btnp{display:inline-block;background:var(--o);color:#fff;text-decoration:none;font-weight:600;font-size:.88rem;padding:.8rem 1.9rem;transition:background .2s,transform .15s}
+.btnp:hover{background:var(--oa);transform:translateY(-2px)}
+.btng{display:inline-block;background:transparent;color:rgba(255,255,255,.72);text-decoration:none;font-weight:500;font-size:.88rem;padding:.8rem 1.9rem;border:1px solid rgba(255,255,255,.22);transition:border-color .2s,color .2s,transform .15s}
+.btng:hover{border-color:var(--o);color:var(--o);transform:translateY(-2px)}
+.hstats{display:flex;gap:2.5rem;margin-top:3.5rem}
+.stat{text-align:left}
+.snum{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--o);line-height:1}
+.slbl{font-size:.67rem;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.38);text-transform:uppercase;margin-top:.28rem}
+
+/* TICKER */
+.ticker-wrap{background:var(--o);overflow:hidden;white-space:nowrap;padding:.6rem 0}
+.ticker-track{display:inline-block;animation:tick 26s linear infinite}
+.ticker-track span{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.7);padding:0 1.8rem}
+.ticker-track span::after{content:'◆';margin-left:1.8rem;opacity:.38}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:5.5rem 2.5rem}
+.slabel{font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--o);margin-bottom:.7rem}
+.stitle{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:.9rem}
+.ssub{font-size:.97rem;font-weight:300;color:rgba(255,255,255,.52);max-width:490px;line-height:1.72}
+
+/* ABOUT */
+#about{background:#2E2E2E}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1080px;margin:0 auto}
+.acards{display:flex;flex-direction:column;gap:.9rem}
+.acard{background:#1A1A1A;border:1px solid rgba(247,105,0,.2);padding:1.75rem;position:relative;overflow:hidden}
+.acard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--o)}
+.aicon{font-size:1.8rem;margin-bottom:.7rem}
+.acard h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.38rem}
+.acard p{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* EQUIPMENT */
+#equipment{background:#1A1A1A}
+.eheader{max-width:1080px;margin:0 auto 2.8rem}
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;max-width:1080px;margin:0 auto;background:rgba(247,105,0,.14)}
+.eitem{background:#1A1A1A;padding:1.8rem;transition:background .2s}
+.eitem:hover{background:rgba(247,105,0,.07)}
+.eico{font-size:1.8rem;margin-bottom:.8rem}
+.eitem h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.38rem}
+.eitem p{font-size:.8rem;color:rgba(255,255,255,.43);line-height:1.55}
+.etag{display:inline-block;margin-top:.65rem;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o);border:1px solid rgba(247,105,0,.32);padding:.16rem .48rem}
+
+/* HOURS */
+#hours{background:#2E2E2E}
+.hinner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.htable{width:100%;border-collapse:collapse;margin-top:1.8rem}
+.htable tr{border-bottom:1px solid rgba(255,255,255,.06)}
+.htable td{padding:.85rem 0;font-size:.88rem;color:rgba(255,255,255,.6)}
+.htable td:first-child{font-weight:600;color:#fff}
+.htable td:last-child{text-align:right}
+.bopen{display:inline-block;background:rgba(50,200,100,.12);color:#5fdc8c;border:1px solid rgba(95,220,140,.28);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.16rem .5rem;vertical-align:middle;margin-left:.45rem}
+.iblock{background:#1A1A1A;border:1px solid rgba(247,105,0,.2);padding:1.6rem;margin-top:.9rem}
+.iblock h4{font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:700;color:var(--o);margin-bottom:.38rem;letter-spacing:.04em;text-transform:uppercase}
+.iblock p{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* WORKSHOPS */
+#workshops{background:#1A1A1A}
+.winner{max-width:1080px;margin:0 auto}
+.wheader{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.8rem;flex-wrap:wrap;gap:1rem}
+.wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.wcard{background:#2E2E2E;border:1px solid rgba(255,255,255,.06);padding:1.6rem;transition:border-color .2s,transform .2s}
+.wcard:hover{border-color:rgba(247,105,0,.38);transform:translateY(-3px)}
+.wdate{font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--o);margin-bottom:.7rem}
+.wtitle{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.42rem;line-height:1.3}
+.wdesc{font-size:.8rem;color:rgba(255,255,255,.43);line-height:1.55;margin-bottom:.9rem}
+.wmeta{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:rgba(255,255,255,.3)}
+.wspots{color:var(--o);font-weight:600}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,#F76900 0%,#c85200 100%);text-align:center;padding:5.5rem 2.5rem}
+#contact .slabel{color:rgba(0,0,0,.45)}
+#contact .stitle{color:#fff}
+#contact .ssub{color:rgba(255,255,255,.75);margin:1rem auto 2.2rem;max-width:460px}
+.cactions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.8rem}
+.btnw{display:inline-block;background:#fff;color:var(--o);text-decoration:none;font-weight:700;font-size:.88rem;padding:.8rem 1.9rem;transition:transform .15s}
+.btnw:hover{transform:translateY(-2px)}
+.btnow{display:inline-block;background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:.88rem;padding:.8rem 1.9rem;border:2px solid rgba(255,255,255,.58);transition:border-color .2s,transform .15s}
+.btnow:hover{border-color:#fff;transform:translateY(-2px)}
+.cdetails{display:flex;justify-content:center;gap:2.8rem;flex-wrap:wrap}
+.cdet{font-size:.84rem;color:rgba(255,255,255,.7)}
+.cdet strong{display:block;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.22rem}
+
+/* FOOTER */
+footer{background:#111;padding:1.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.06)}
+.fleft{font-size:.76rem;color:rgba(255,255,255,.28)}
+.fleft a{color:var(--o);text-decoration:none}
+.flinks{display:flex;gap:1.4rem;list-style:none}
+.flinks a{font-size:.76rem;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--o)}
+
+@media(max-width:768px){
+  nav{padding:.9rem 1.25rem}
+  .nlinks{display:none}
+  section{padding:3.5rem 1.25rem}
+  #hero{padding:4rem 1.25rem 3rem}
+  .agrid,.hinner{grid-template-columns:1fr;gap:2rem}
+  .egrid{grid-template-columns:1fr 1fr}
+  .wcards{grid-template-columns:1fr}
+  h1{font-size:2.8rem}
+  footer{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){.egrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nlogo">
+    <div class="nmark">RIT</div>
+    <div class="ntext">
+      <span>College of Art &amp; Design</span>
+      <span>FabLab</span>
+    </div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#workshops">Workshops</a></li>
+    <li><a href="#contact" class="ncta">Reserve a Machine</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hglow"></div>
+  <div class="hcontent">
+    <div class="heyebrow">RIT College of Art and Design</div>
+    <h1>Make <em>anything.</em><br>Build everything.</h1>
+    <p class="hsub">The FabLab is your digital fabrication studio — laser cutters, 3D printers, CNC routers, and vinyl plotters, all under one roof. Open to every RIT student, faculty, and staff.</p>
+    <div class="hactions">
+      <a href="#contact" class="btnp">Reserve a Machine →</a>
+      <a href="#equipment" class="btng">Explore Equipment</a>
+    </div>
+    <div class="hstats">
+      <div class="stat"><div class="snum">14+</div><div class="slbl">Machines</div></div>
+      <div class="stat"><div class="snum">3K+</div><div class="slbl">Projects / yr</div></div>
+      <div class="stat"><div class="snum">50+</div><div class="slbl">Materials</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Laser Cutting</span><span>3D Printing</span><span>Vinyl Plotting</span><span>CNC Routing</span><span>Resin Casting</span><span>Sublimation Printing</span><span>Embroidery Machine</span><span>Large Format Printing</span><span>Laser Engraving</span>
+    <span>Laser Cutting</span><span>3D Printing</span><span>Vinyl Plotting</span><span>CNC Routing</span><span>Resin Casting</span><span>Sublimation Printing</span><span>Embroidery Machine</span><span>Large Format Printing</span><span>Laser Engraving</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="agrid">
+    <div>
+      <div class="slabel">What is FabLab</div>
+      <h2 class="stitle">Where ideas become<br>physical objects.</h2>
+      <p class="ssub">The RIT CAD FabLab is a state-of-the-art digital fabrication space supporting creative and technical work across all disciplines — design, fine arts, engineering, and beyond.</p>
+      <br>
+      <p class="ssub">Complete a free safety orientation, book your machine online, and walk in ready to make. Materials available on-site, or bring your own.</p>
+    </div>
+    <div class="acards">
+      <div class="acard"><div class="aicon">🎓</div><h3>For the RIT Community</h3><p>All current RIT students, faculty, and staff may use the FabLab after completing a brief orientation.</p></div>
+      <div class="acard"><div class="aicon">🛡️</div><h3>Trained Technicians On-Site</h3><p>Staff and student workers are on hand every open hour for machine setup, file prep, and troubleshooting.</p></div>
+      <div class="acard"><div class="aicon">⚡</div><h3>Rapid Prototyping Ready</h3><p>Concept sketch to physical prototype — often in under an hour. Iterate fast and refine in the same session.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="equipment">
+  <div class="eheader">
+    <div class="slabel">Equipment</div>
+    <h2 class="stitle">Professional tools,<br>student access.</h2>
+  </div>
+  <div class="egrid">
+    <div class="eitem"><div class="eico">🔴</div><h3>Laser Cutters</h3><p>Epilog Fusion Pro &amp; Trotec Speedy CO₂ systems for cutting and engraving wood, acrylic, leather, and fabric.</p><span class="etag">Requires Orientation</span></div>
+    <div class="eitem"><div class="eico">🖨️</div><h3>FDM 3D Printers</h3><p>Prusa MK4 and Bambu Lab X1C for rapid prototyping in PLA, PETG, TPU up to 350×350×350 mm.</p><span class="etag">Walk-in Welcome</span></div>
+    <div class="eitem"><div class="eico">💎</div><h3>Resin 3D Printers</h3><p>Formlabs Form 3 and Phrozen Sonic Mega for high-detail prints — jewelry, miniatures, complex geometries.</p><span class="etag">Requires Orientation</span></div>
+    <div class="eitem"><div class="eico">✂️</div><h3>Vinyl Plotters</h3><p>Roland and Graphtec plotters for HTV vinyl, stencil film, and specialty media up to 24" wide.</p><span class="etag">Walk-in Welcome</span></div>
+    <div class="eitem"><div class="eico">🪵</div><h3>CNC Router</h3><p>ShopBot Desktop CNC for carving and milling wood, foam, soft metals, and plastics. Bed 24×18".</p><span class="etag">Requires Orientation</span></div>
+    <div class="eitem"><div class="eico">🎨</div><h3>Large Format Printer</h3><p>Epson SC-P9000 wide-format inkjet for exhibition prints up to 44" wide on paper, canvas, and vinyl.</p><span class="etag">Staff Assisted</span></div>
+    <div class="eitem"><div class="eico">👕</div><h3>Embroidery Machine</h3><p>Brother Entrepreneur Pro X for digitized embroidery on garments and fabric panels up to 14×14".</p><span class="etag">Requires Orientation</span></div>
+    <div class="eitem"><div class="eico">🌈</div><h3>Sublimation Printer</h3><p>Sawgrass SG1000 for full-color transfer onto mugs, apparel, tiles, and polyester substrates.</p><span class="etag">Staff Assisted</span></div>
+    <div class="eitem"><div class="eico">💻</div><h3>Design Workstations</h3><p>Apple Mac Studios with Adobe CC, Rhino 8, Fusion 360, and Cura for file prep and design work.</p><span class="etag">Walk-in Welcome</span></div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="hinner">
+    <div>
+      <div class="slabel">Hours &amp; Location</div>
+      <h2 class="stitle">Come find us.</h2>
+      <table class="htable">
+        <tr><td>Monday <span class="bopen">Open</span></td><td>9:00 AM – 8:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>9:00 AM – 8:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>9:00 AM – 8:00 PM</td></tr>
+        <tr><td>Thursday</td><td>9:00 AM – 8:00 PM</td></tr>
+        <tr><td>Friday</td><td>9:00 AM – 5:00 PM</td></tr>
+        <tr><td>Saturday</td><td>11:00 AM – 4:00 PM</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+      <br>
+      <p style="font-size:.75rem;color:rgba(255,255,255,.3);line-height:1.6">Hours subject to change during breaks. Check @ritfablab or mySigns for updates.</p>
+    </div>
+    <div>
+      <div class="slabel">Getting Here</div>
+      <h2 class="stitle" style="font-size:1.7rem;margin-bottom:1.4rem">Booth Hall, Room 2225</h2>
+      <div class="iblock"><h4>📍 Location</h4><p>Booth Hall, 2nd Floor, Room 2225<br>Rochester Institute of Technology<br>One Lomb Memorial Drive, Rochester, NY 14623</p></div>
+      <div class="iblock"><h4>🪪 Access Requirements</h4><p>Valid RIT OneCard required after hours. Complete a free online orientation before your first visit.</p></div>
+      <div class="iblock"><h4>🅿️ Parking</h4><p>Visitor parking in Lot J off Lomb Memorial Drive. Shuttle stops at Booth Hall on the Red Route.</p></div>
+      <div class="iblock"><h4>♿ Accessibility</h4><p>Booth Hall is fully ADA accessible with elevator access on the east side. Contact us for accommodations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="workshops">
+  <div class="winner">
+    <div class="wheader">
+      <div><div class="slabel">Upcoming Workshops</div><h2 class="stitle">Learn, make, repeat.</h2></div>
+      <a href="#contact" class="btng" style="white-space:nowrap">View Full Calendar →</a>
+    </div>
+    <div class="wcards">
+      <div class="wcard"><div class="wdate">May 20 · 2:00–4:00 PM</div><div class="wtitle">Intro to Laser Cutting</div><div class="wdesc">Vector file prep, material selection, and safe operation on the Epilog Fusion Pro.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">4 spots left</span></div></div>
+      <div class="wcard"><div class="wdate">May 22 · 10:00 AM–12:00 PM</div><div class="wtitle">Rhino to 3D Print</div><div class="wdesc">Mesh repair, slicing, and support strategy for print-ready Rhino files.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">8 spots left</span></div></div>
+      <div class="wcard"><div class="wdate">May 28 · 3:00–5:00 PM</div><div class="wtitle">Vinyl &amp; Heat Transfer</div><div class="wdesc">Design and cut custom apparel graphics using HTV vinyl and our Roland plotter.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">12 spots left</span></div></div>
+      <div class="wcard"><div class="wdate">Jun 3 · 1:00–3:00 PM</div><div class="wtitle">Intro to CNC Routing</div><div class="wdesc">ShopBot certification — VCarve toolpaths, clamping, and safe machine operation.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">6 spots left</span></div></div>
+      <div class="wcard"><div class="wdate">Jun 5 · 11:00 AM–1:00 PM</div><div class="wtitle">Resin Printing Deep Dive</div><div class="wdesc">PreForm software, post-curing, and surface finishing on the Formlabs Form 3.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">5 spots left</span></div></div>
+      <div class="wcard"><div class="wdate">Jun 10 · 2:00–4:00 PM</div><div class="wtitle">Large Format Printing</div><div class="wdesc">Color profiles, bleed setup, media selection, and working with staff for large print runs.</div><div class="wmeta"><span>Booth 2225</span><span class="wspots">10 spots left</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="slabel">Get Started</div>
+  <h2 class="stitle">Ready to make something?</h2>
+  <p class="ssub">Complete the free orientation, reserve your machine, and walk in ready to create. Our staff is here every step of the way.</p>
+  <div class="cactions">
+    <a href="https://rit.edu" class="btnw">Book a Machine</a>
+    <a href="https://rit.edu" class="btnow">Take Orientation</a>
+  </div>
+  <div class="cdetails">
+    <div class="cdet"><strong>Email</strong>fablab@rit.edu</div>
+    <div class="cdet"><strong>Phone</strong>(585) 475-0000</div>
+    <div class="cdet"><strong>Instagram</strong>@ritfablab</div>
+    <div class="cdet"><strong>Location</strong>Booth Hall, Room 2225</div>
+  </div>
+</section>
+
+<footer>
+  <p class="fleft">© 2026 RIT College of Art and Design FabLab &nbsp;·&nbsp; <a href="https://rit.edu">Rochester Institute of Technology</a></p>
+  <ul class="flinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#workshops">Workshops</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
